@@ -110,8 +110,6 @@ class _HomeViewState extends State<HomeView> {
                                 fontWeight: FontWeight.bold),
                           ),
                           getWeatherIcon(state.weather.weatherConditionCode!),
-                          /*Image.network(
-                              "https://cdn4.iconfinder.com/data/icons/energy-sources/512/as_374-1024.png"),*/
                           Center(
                             child: Text(
                               '${state.weather.temperature!.celsius!.round()} °C',
@@ -135,7 +133,6 @@ class _HomeViewState extends State<HomeView> {
                               DateFormat('EEEE dd -')
                                   .add_jm()
                                   .format(state.weather.date!),
-                              //'Friday - 09.41 am',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 16,
@@ -150,8 +147,8 @@ class _HomeViewState extends State<HomeView> {
                             children: [
                               Row(
                                 children: [
-                                  Image.network(
-                                    "https://cdn3.iconfinder.com/data/icons/travel-35/64/_Sun-256.png",
+                                  Image.asset(
+                                    "assets/sun.png",
                                     width: 40,
                                   ),
                                   const SizedBox(
@@ -175,7 +172,6 @@ class _HomeViewState extends State<HomeView> {
                                         DateFormat()
                                             .add_jm()
                                             .format(state.weather.sunrise!),
-                                        //'5:34 am',
                                         style: TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.w700,
@@ -187,8 +183,8 @@ class _HomeViewState extends State<HomeView> {
                               ),
                               Row(
                                 children: [
-                                  Image.network(
-                                    "https://cdn4.iconfinder.com/data/icons/weather-1104/48/COLOR_ICON-19-512.png",
+                                  Image.asset(
+                                    "assets/moon.png",
                                     width: 40,
                                   ),
                                   const SizedBox(
@@ -235,8 +231,8 @@ class _HomeViewState extends State<HomeView> {
                             children: [
                               Row(
                                 children: [
-                                  Image.network(
-                                    "https://cdn4.iconfinder.com/data/icons/the-weather-is-nice-today/64/weather_43-512.png",
+                                  Image.asset(
+                                    "assets/maxtemp.png",
                                     width: 40,
                                   ),
                                   const SizedBox(
@@ -270,8 +266,8 @@ class _HomeViewState extends State<HomeView> {
                               ),
                               Row(
                                 children: [
-                                  Image.network(
-                                    "https://cdn4.iconfinder.com/data/icons/the-weather-is-nice-today/64/weather_42-512.png",
+                                  Image.asset(
+                                    "assets/mintemp.png",
                                     width: 40,
                                   ),
                                   const SizedBox(
