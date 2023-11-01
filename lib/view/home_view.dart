@@ -6,8 +6,34 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:weather_app/bloc/weather_bloc_bloc.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  Widget getWeatherIcon(int code) {
+    switch (code) {
+      case >= 200 && < 300:
+        return Image.asset('assets/1.png');
+      case >= 300 && < 400:
+        return Image.asset('assets/2.png');
+      case >= 500 && < 600:
+        return Image.asset('assets/3.png');
+      case >= 600 && < 700:
+        return Image.asset('assets/4.png');
+      case >= 700 && < 800:
+        return Image.asset('assets/5.png');
+      case == 800:
+        return Image.asset('assets/6.png');
+      case > 800 && <= 804:
+        return Image.asset('assets/7.png');
+      default:
+        return Image.asset('assets/7.png');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,8 +109,9 @@ class HomeView extends StatelessWidget {
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold),
                           ),
-                          Image.network(
-                              "https://cdn4.iconfinder.com/data/icons/energy-sources/512/as_374-1024.png"),
+                          getWeatherIcon(state.weather.weatherConditionCode!),
+                          /*Image.network(
+                              "https://cdn4.iconfinder.com/data/icons/energy-sources/512/as_374-1024.png"),*/
                           Center(
                             child: Text(
                               '${state.weather.temperature!.celsius!.round()} °C',
@@ -266,7 +293,6 @@ class HomeView extends StatelessWidget {
                                       ),
                                       Text(
                                         '${state.weather.tempMin!.celsius!.round().toString()} °C',
-                                        
                                         style: TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.w700,
