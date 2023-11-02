@@ -1,11 +1,32 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:weather_app/view/Login_View/constants.dart';
+import 'package:weather_app/view/Onbording_View/onbarding_view.dart';
 import 'package:weather_app/view/Home_View/home_view.dart';
 import 'package:weather_app/bloc/weather_bloc_bloc.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(Splash());
+}
+
+class Splash extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: AnimatedSplashScreen(
+        splash: Image.asset(
+          'assets/logo.png',
+        ),
+        splashTransition: SplashTransition.fadeTransition,
+        backgroundColor: Color.fromARGB(255, 0, 0, 0),
+        nextScreen: OnboardingView(),
+      ),
+    );
+  }
 }
 
 class MainApp extends StatelessWidget {
